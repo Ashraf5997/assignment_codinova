@@ -1,0 +1,47 @@
+
+
+<div id="mainDiv" class="container">
+     <div id="card" class="jumbotron">
+         <h1 >CODINOVA</h1>
+         <p>MEAN STACK ASSIGNMENT</p>
+    
+         <div class="row loginFormDiv">
+                 <div class="col">
+                  <h2>  <i class="fa fa-lock" aria-hidden="true"></i>LOGIN</h2>
+                   <hr>
+                 <!--DISPLAYING MSG-->
+                  <div  class="alert alert-danger">
+                       {{errMsg}}
+                  </div>
+              
+
+                  <!--SPINNER-->
+                  <div *ngIf="isSpinnerOn" class="spinnerDiv">
+                       <mat-spinner style="font-size: 15px;">verifying...</mat-spinner>
+                  </div>
+               
+                   <!--INPUT CREDENTIALS-->
+                <div *ngIf="!isSpinnerOn" class="FORM_DIV">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Email" name="email"[(ngModel)]="email">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input matInput type="password" placeholder="Password" name="password"[(ngModel)]="password">
+                    </mat-form-field>
+                    <button  (click)="login()" mat-raised-button color="warn">LOGIN</button> 
+                </div>   
+               
+               </div>
+         
+                <div class=" col ">
+                    <img src="./assets/Images/pic13.png">
+                </div>
+         </div>
+
+            <!--FOOTER-->
+           <app-footer></app-footer>
+       
+      </div>
+</div>
+
+

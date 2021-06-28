@@ -1,0 +1,155 @@
+
+/*
+#button-class{
+    background-color: brown;
+    font-size: 20px;
+    color:white
+}
+#button-class:hover{
+    background-color: rgb(47, 47, 85);
+   
+}*/
+
+.list-item-active{
+    color:white;
+}
+.mat-subheader{
+    color:white;
+  
+}
+.mat-icon{
+  vertical-align: center;
+  margin-right: 1rem;
+}
+
+.mat-driver{
+    border-top-width:2px ;
+    background: linear-gradient(to right , rgb(241, 31, 31) ,rgb(240, 240, 245));
+
+}
+
+.mat-list-item{
+    color:rgb(19, 15, 15);
+    font-size: 0.8rem;
+    height:44 !important;
+    margin-top: 10px;
+    border-radius: 5px;
+    margin:0.8px;
+   
+}
+.mat-list-item:hover{
+    background-color: rgb(19, 15, 15);
+}
+#LOGO{
+    width: 50px;
+    height: 50px;
+    border-radius: 80px;
+    text-align: center;
+  
+}
+.LOGO_DIV{
+    padding-left:25px;
+   /* background: linear-gradient(to right , rgb(241, 31, 31) ,rgb(240, 240, 245));*/
+    margin-top: -10px;
+    height: 100px;
+    background-color: rgb(27, 27, 112);
+}
+#username{
+    padding-left:50px;
+}
+
+:host{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+}
+
+.mat-drawer{
+
+   width:250px;
+   /*background: linear-gradient(to right , rgb(241, 31, 31) ,rgb(240, 240, 245));*/
+  
+  color: white
+    
+}
+
+.mat-drawer-container{
+    height: 100%;
+}
+
+h2{
+    color:orangered;
+    
+}
+html, body { height: 100%; }
+   /*body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }*/
+
+.example-h2 {
+    margin: 10px;
+  }
+  
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .example-margin {
+    margin: 0 10px;
+  }
+
+
+  .spinnerDiv{
+     
+     padding-left: 90px;
+    /*  padding-top: 70px;*/
+    
+  }
+
+
+
+  .formContainer{
+    border: 1px solid rgb(241, 52, 52);
+    padding: 10px;
+    box-shadow: 2px 8px 5px 10px #c7c4c4;
+    width: 70%;
+    flex-direction: column;
+    float: center;
+    margin-left: 55px;
+  }
+
+
+
+  /*BUTTON*/
+  section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+  }
+  
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }

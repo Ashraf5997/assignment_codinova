@@ -1,0 +1,82 @@
+
+
+.mainDiv{
+    width: 100%;
+  
+   /* background: linear-gradient(to right , rgb(241, 31, 31) ,rgb(240, 240, 245));*/
+
+}
+
+.cartHeader{
+    height: 50px;
+    width: 15%;
+    background-color: black;
+    color:red;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px;
+    margin-left: 15px;
+    border-radius: 90px;
+  }
+  .cart-Body{
+      height: 100%;
+      width: 100%;
+      background-color: rgb(245, 160, 160);
+  }
+
+  /* Style the search box inside the navigation bar */
+  .topnav input[type=text] {
+    float: left;
+    padding: 6px;
+    border: none;
+    margin-top: 2px;
+    margin-right: 6px;
+    font-size: 17px;
+    width: 100%;
+    padding-left: 55px;
+    padding-top: -50px;
+    margin-top: -15px;
+    height: 40px;
+    border:1px solid rgb(238, 62, 62);
+  }
+
+  .srch-btn{
+      flex-direction: row;
+      float: right;
+      margin-top: -38px;
+  }
+  .menu{
+    cursor: pointer;
+    color: red;
+
+  }
+
+  .jumbotron{
+      padding: 20px;
+      margin-left: 40px;
+      margin-top: 25px;
+      align-items: center;
+      width: 600px;
+      text-align: center;
+  }
+
+  .cartTable{
+    margin-top: 10px;
+    margin-left: 15px;
+    
+  }
+
+  #Crcl_btn{
+    width:30px;
+    height:30px;
+    padding: 8px;
+  }
+
+  .buttonP{
+    width: 100%;
+  }
+  
+  /*
+
+
+  */

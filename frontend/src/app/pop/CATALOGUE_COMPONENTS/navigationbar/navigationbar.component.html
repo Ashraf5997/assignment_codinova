@@ -1,0 +1,46 @@
+
+
+<!--NAVIGATION BAR -->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+       <ul class="nav" ><li (click)="fetchProducts()" ><a class="menu"> Home </a></li></ul> 
+      <ul class="nav"  *ngFor="let menu of menuLinks">
+        <li (click)="menuRender(menu)"><a class="menu"> {{menu |uppercase}} </a></li>
+      </ul>
+      <ul class="nav  navbar-right">
+        <li (click)="logout()"><a class="menu"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      
+      </ul>
+    </div>
+</nav>
+
+  <!--SEARCH BAR-->
+  <div class="topnav">
+       <input type="text" placeholder="Search Products by category"  [(ngModel)]="searchfield" >
+       <button  name="searchfield" class="srch-btn" (click)="search()" mat-raised-button color="warn">SEARCH</button> 
+
+  </div>
+  <!---->
+  <hr>
+
+  <div  class="row">
+
+      <div *ngFor="let p of productList" class="col-4">
+        <div  class="col-4 card" style="width: 18rem;margin-top:10px;">
+            <div class="card-body">
+              <h5 class="card-title"><b>{{p.productcategory}}</b></h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{p.productname}}</h6>
+              <img src="./assets/Images/pic11.png" style="width: 160px;height: 95px;">
+                <button mat-button [matMenuTriggerFor]="menu">See more</button>
+                    <mat-menu #menu="matMenu">
+                    <p>Quantity {{p.productquantity}}</p>
+                    <p>{{p.productprice}}</p>
+                </mat-menu>
+            </div>
+          </div>
+      </div>
+     
+
+  </div>
+  
+

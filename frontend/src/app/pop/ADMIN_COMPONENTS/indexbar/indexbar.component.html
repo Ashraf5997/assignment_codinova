@@ -1,0 +1,112 @@
+
+
+
+   <div class="row headerDiv" >
+           <div class="headerLogoutDiv">
+                <button style="background-color: rgb(53, 53, 141);color: white;" mat-button [matMenuTriggerFor]="menu">SETTING</button>
+                    <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="OPEN_FORM('addproduct')">Add Product</button>
+                    <button mat-menu-item (click)="OPEN_FORM('adduser')">Add User</button>
+                    <button mat-menu-item (click)="loggedout()" >Logout</button>
+                </mat-menu>
+           </div>
+   </div>
+
+   <div class="row mainDiv">
+       <div class="containers jumbotron" >
+       
+
+            <!--ADDING USER FORM-->
+            <div *ngIf="displayUserForm" class="formContainer">
+               
+                    <mat-form-field class="example-full-width">
+                        <input matInput name="fullname" placeholder="fullname" [(ngModel)]="fullname" >
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="email" name="email"  [(ngModel)]="email">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="password" name="password"  [(ngModel)]="password">
+                    </mat-form-field>
+                 
+                        <select aria-placeholder="Access Type" name="accesstype"  [(ngModel)]="accesstype"   style="padding-right: 150px;margin-right: 25px;">
+                          
+                            <option value="admin-user">Admin</option>
+                            <option value="manager-user">Manager</option>
+                        </select>
+               
+                        <button routerLink="#"  (click)="saveuser()" mat-raised-button color="warn">SAVE</button> 
+                        <button  (click)="CLOSE_FORM(displayUserForm)"  mat-raised-button color="info">CLOSE</button> 
+            </div>
+
+              <!--ADDING USER FORM-->
+              <div *ngIf="displayProductForm" class="formContainer">
+               
+                <mat-form-field class="example-full-width">
+                    <input matInput name="productname" placeholder="productname" [(ngModel)]="productname" >
+                </mat-form-field>
+              
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="product price" name="productprice"  [(ngModel)]="productprice">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="product quantity" name="productquantity"  [(ngModel)]="productquantity">
+                </mat-form-field>
+
+                <select  name="productcategory"  [(ngModel)]="productcategory"   style="padding-right: 150px;margin-right: 25px;">     
+                    <option value="Fruits">Fruits</option>
+                    <option value="Cloths">Cloths</option>
+                    <option value="Laptop">Laptop</option>
+                    <option value="Services">Services</option>
+                    <option value="Burger">Burger</option>
+                    <option value="Pizza">Pizza</option>
+                </select>
+            
+                    <button routerLink="#"  (click)="saveProduct()" mat-raised-button color="warn">SAVE</button> 
+                    <button (click)="CLOSE_FORM(displayProductForm)"  mat-raised-button color="info">CLOSE</button> 
+            </div>
+
+          <!--LISTING PRODUCTS-->
+                    
+            <div class="formContainer">
+                <h1>LIST OF PRODUCT</h1>
+
+                <table class="table table-bordered table-sm">
+                    <thead>
+                    <tr>
+                        <th> # PRODUCT ID.</th>
+                        <th> NAME</th>
+                        <th> CATEGORY</th>
+                        <th> PRICE </th>
+                        <th> QUANTITY</th>
+                        <th> CREATED BY</th>
+                        <th> ACTION</th>
+                    </tr>
+                    </thead>
+                    <tbody *ngFor="let p of productList" >
+
+                    <tr>
+                        <td>{{p.id}}</td>
+                        <td>{{p.productname}}</td>
+                        <td>{{p.productcategory}}</td>
+                        <td>{{p.productprice}}</td>
+                        <td>{{p.productquantity}}</td>
+                        <td>{{p.createdby}}</td>
+                        <td> 
+                            <button (click)="deleteProduct(p.id)"   mat-raised-button color="warn">DELETE</button>
+                            <button (click)="editProduct(p.id ,p.productname,p.productcategory,p.productprice,p.productquantity )"     mat-raised-button color="info">EDIT</button>
+                        </td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+            </div>
+
+          
+
+       </div>
+   </div>
+
+ 
+
+

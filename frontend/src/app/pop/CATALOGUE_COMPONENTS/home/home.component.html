@@ -1,0 +1,178 @@
+
+     
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<div class="row mainDiv" cdkDropListGroup>
+        <div  class="col"   cdkDropList
+           [cdkDropListData]="mycart"
+           (cdkDropListDropped)="drop($event)" >
+
+            <div class="cartHeader">
+                <h1> <i class="fa fa-shopping-cart"> = {{cartItem}}</i> </h1>
+            </div>
+         
+            <!-- CART ITEM TABLE-->                                 
+            <div class="cartTable">
+                <h2>MY CART ITEMS</h2>
+                <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th>PRODUCT</th>
+                    <th>PRICE</th>
+                    <th>QUANTITY</th>
+                    <th>ADD|REMOVE</th>
+                    <th>TOTAL</th>
+                    
+                    </tr>
+                </thead>
+                <tbody  *ngFor="let p of mycart">
+                    <tr>
+                    <td>{{p.productname}}</td>
+                    <td>{{p.productprice}}</td>
+                    <td>{{p.productquantity}}</td>
+                    <td>
+                         <button id="Crcl_btn" (click)="addOne(p.productquantity, p.id)" mat-mini-fab color="info">
+                             <i style="margin-top:-30px;"  class="fa fa-plus"></i>
+                        </button>
+
+                        <button id="Crcl_btn" (click)="removeOne(p.productquantity,p.id)" mat-mini-fab color="info">
+                            <i style="margin-top:-30px;"   class="fa fa-minus"></i>
+                        </button>
+                    </td>
+                    <td>{{p.productprice * p.productquantity}}</td>
+                    </tr>
+                
+                </tbody>
+                </table>
+            </div>
+
+
+             <div class="row" > 
+                    <div *ngFor="let p of mycart"  class="col-4"  >
+                        <div  class="col-4 card "  cdkDrag style="align-items:center ; width: 18rem;margin-top:15px;margin-left:20px;">
+                            <div class="card-body">
+                             
+                                 <button id="Crcl_btn" style="float: right ;" (click)="removecart(p.id)" mat-mini-fab color="info" >
+                                    <i style="margin-top:-30px; color: red;" class="fa fa-times"></i>
+                                 </button>
+                                
+
+                               <h5 class="card-title"><b>{{p.productcategory}}</b></h5>
+                               <h6 class="card-subtitle mb-2 text-muted">{{p.productname}}</h6>
+                               <img src="./assets/Images/pic11.png" style="width: 160px;height: 95px;">
+                               
+                                <button mat-button [matMenuTriggerFor]="menu">See more</button>
+                                      <mat-menu #menu="matMenu">
+                                            <p>Quantity {{p.productquantity}}</p>
+                                            <p>{{p.productprice}}</p>
+                                     </mat-menu>
+                             </div>
+                            </div>
+                     </div>
+
+                     <div *ngIf="!cartItem" class="jumbotron">
+                        <h2>YOUR CART IS EMPTY</h2>
+                        <p>Please drag and drop your products here </p>
+                      </div>
+
+                      <!--BILLING -->
+                      <hr>
+                      <div class="card-deck">
+                        <div class="card " style="background-color: black;color: white;">
+                            <h2 style="margin-left: 25px;">PAYMENT</h2>
+                            <div class="card-body text-center row">
+                                <div class="card-body text-censter col-4">
+                                    <p class="card-text">Sub Amount </p>
+                                </div>
+                                <div class="card-body text-centesr col-4">
+                                    <p class="card-text">{{subamount}}</p>
+                                </div>
+                              </div>
+                              <div class="card-body text-center row">
+                                <div class="card-body text-censter col-4">
+                                    <p class="card-text">ADDING VAT 15%</p>
+                                </div>
+                                <div class="card-body text-centesr col-4">
+                                    <p class="card-text">{{vat}}</p>
+                                </div>
+                              </div>
+                              <div class="card-body text-center row">
+                                <div class="card-body text-censter col-4">
+                                    <p class="card-text">Total Amount </p>
+                                </div>
+                                <div class="card-body text-centesr col-4">
+                                    <p class="card-text">{{totalamount}}</p>
+                                </div>
+                              </div>
+                              <div class="card-body text-center row">
+                                <div class="card-body text-centesr col-4">
+                                    <button type="button" class="btn btn-danger buttonP">Cancle</button>
+                                </div>
+                                <div class="card-body text-censter col-4">
+                                    <button type="button" class="btn btn-primary buttonP">Proceed</button>
+                                </div>
+                              
+                              </div>
+                         
+                        </div>
+                      </div>
+
+               </div>
+            </div>
+
+        <div class="col"   cdkDropList
+        [cdkDropListData]="productList"
+        (cdkDropListDropped)="drop($event)">
+                
+        <!--NAVIGATION BAR -->
+         <nav class="navbar navbar-inverse">
+            <h4 style="color: rgb(248, 205, 205);margin-right: 25px;">WELCOME {{username}}</h4>
+                <div class="container-fluid">
+                <ul class="nav" ><li (click)="fetchProducts()" ><a class="menu"> Home </a></li></ul> 
+                <ul class="nav"  *ngFor="let menu of menuLinks">
+                    <li (click)="menuRender(menu)"><a class="menu"> {{menu |uppercase}} </a></li>
+                </ul>
+                <ul class="nav  navbar-right">
+                    <li (click)="logout()"><a class="menu"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
+                </div>
+         </nav>
+
+        <!--SEARCH BAR-->
+         <div class="topnav">
+            <input type="text" placeholder="Search Products by category"  [(ngModel)]="searchfield" >
+            <button  name="searchfield" class="srch-btn" (click)="search()" mat-raised-button color="warn">SEARCH</button> 
+        </div>
+        <!---->
+        <hr>
+        
+
+        <div class="row"> 
+            <div *ngFor="let p of productList"   class="col-4">
+                <div  class="col-4 card"  cdkDrag style="width: 18rem;margin-top:10px;">
+                    <div class="card-body">
+                    <h5 class="card-title"><b>{{p.productcategory}}</b></h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{p.productname}}</h6>
+                    <img src="./assets/Images/pic11.png" style="width: 160px;height: 95px;">
+                        <button mat-button [matMenuTriggerFor]="menu">See more</button>
+                            <mat-menu #menu="matMenu">
+                            <p>Quantity {{p.productquantity}}</p>
+                            <p>{{p.productprice}}</p>
+                        </mat-menu>
+                    </div>
+                </div>
+            </div>
+         </div>
+
+
+  </div>
+</div>
+
+
+  

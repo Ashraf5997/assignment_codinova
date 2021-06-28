@@ -1,0 +1,17 @@
+
+#card{
+    background-color: #EADFDC;
+    text-align: center;
+    padding: 10px;
+    padding-top: 15px;
+ /*   box-shadow: 5px 5px 5px 5px rgb(155, 152, 152);*/
+}
+
+#footerDiv{
+    padding: 30px;
+    font-size: 15px;
+ 
+    margin-top:10px;
+    color: rgb(121, 121, 126);
+    text-align: center;
+}

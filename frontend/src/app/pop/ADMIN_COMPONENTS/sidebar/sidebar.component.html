@@ -1,0 +1,45 @@
+
+
+<mat-nav-list>
+    <div class="logo py-4 LOGO_DIV" >
+        <img id="LOGO" src="./assets/Images/pic11.png" alt="LOGO">
+          <div id="username">
+              <b>{{username}}</b>      
+          </div>
+    </div>
+    <mat-divider>
+              
+    </mat-divider>
+<!----
+    <h2 matSubheader class="mt-2">MENU</h2>
+    <a mat-list-item routerLink ="home" routerLinkActive="list-item-active">
+        <mat-icon>home</mat-icon>HOME
+    </a>
+    <a mat-list-item routerLink ="home" routerLinkActive="list-item-active">
+        <mat-icon>laptop</mat-icon>LAPTOP
+    </a>
+    <a mat-list-item routerLink ="home" routerLinkActive="list-item-active">
+        <mat-icon>home</mat-icon>HOME
+    </a>
+    <a mat-list-item routerLink ="home" routerLinkActive="list-item-active">
+        <mat-icon>dashboard</mat-icon>DASHBOARD
+    </a>
+    <a mat-list-item routerLink ="home" routerLinkActive="list-item-active">
+        <mat-icon>home</mat-icon>HOME
+    </a>
+    <a mat-list-item routerLink ="home" routerLinkActive="list-item-active">
+        <mat-icon>dashboard</mat-icon>DASHBOARD
+    </a>
+    <a mat-list-item routerLink ="home" routerLinkActive="list-item-active">
+        <mat-icon>home</mat-icon>HOME
+    </a>
+    <a mat-list-item routerLink ="home" routerLinkActive="list-item-active">
+        <mat-icon>dashboard</mat-icon>DASHBOARD
+    </a>-->
+
+    <div *ngFor="let menu of menuLinks">
+        <a mat-list-item routerLink ="home" routerLinkActive="list-item-active" (click)="renderMenu(menu)" >
+            <mat-icon>{{menu}}</mat-icon>{{menu |uppercase}}
+        </a>
+    </div>
+</mat-nav-list>
